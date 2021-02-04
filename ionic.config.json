@@ -1,0 +1,7 @@
+{
+  "name": "ionicPress",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
