@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="true" [options]="slideOpts" (ionSlideTouchStart)="slideDidChange()" #sliderRef >
+    <ion-slide>
+      <ion-card *ngIf=" !(user | async) else welcome ">
+        <ion-card-content>
+          <form [formGroup]="userForm" (ngSubmit)="login()">
+            <ion-item>
+              <ion-label>Username</ion-label>
+              <ion-input formControlName="username" type="text" placeholder=""></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Password</ion-label>
+              <ion-input formControlName="password" type="password" placeholder=""></ion-input>
+            </ion-item>
+            <ion-button type="submit">
+              Sign in
+            </ion-button>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    
+      <ng-template #welcome>
+        <ion-card>
+          <ion-card-content>
+            <h2>Welcome</h2>
+          </ion-card-content>
+        </ion-card>
+        <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
+          Log Out
+        </ion-button>
+      </ng-template>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <h2>Your account</h2>
+          <hr>
+          <h3>Your email</h3>
+          <p>{{ userDetails.email }}</p>
+          <hr>
+          <h3>Your username</h3>
+          <p>{{ userDetails.username }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  
+  
+</ion-content>
+

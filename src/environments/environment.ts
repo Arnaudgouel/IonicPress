@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://wordpress-learning.com/wp-json/wp/v2/',
+  authUrl: 'https://wordpress-learning.com/wp-json/jwt-auth/v1/',
 };
 
 /*
