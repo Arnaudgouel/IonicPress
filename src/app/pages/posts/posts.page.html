@@ -12,8 +12,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [scrollEvents]="true" (ionScroll)="scrollContent($event)" #contentRef>
+  <ion-progress-bar slot="fixed" [value]="valueProgressBar"></ion-progress-bar>
   <ion-searchbar animated [(ngModel)]="searchTerm" (ionChange)="searchChanged()" debounce="1000"></ion-searchbar>
 
   <div *ngIf="totalPosts > 0 else elseBlock" class="ion-text-center ion-padding">

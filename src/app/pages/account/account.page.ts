@@ -88,19 +88,10 @@ export class AccountPage implements OnInit {
     this.api.logout();
   }
 
-  slideDidChange(e){
-    console.log('Slide changed', e);
+  slideDidChange(){
+    console.log('Slide changed');
     if(this.lockedSlides){
       this.presentToast();
-    }
-  }
-
-  async checkUserConnected(){
-    if(await this.user){
-      console.log('Connected');
-    }
-    else{
-      console.log('Disconnected');
     }
   }
 
